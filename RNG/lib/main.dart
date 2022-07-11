@@ -1,3 +1,5 @@
+import 'dart:math';
+
 import 'package:flutter/material.dart';
 
 void main() {
@@ -34,10 +36,11 @@ class MyHomePage extends StatefulWidget {
 class _MyHomePageState extends State<MyHomePage> {
   int _counter = 0;
 
-  void _incrementCounter() {
+  void _randNum() {
     setState(() {
-
-      _counter++;
+      int max = 10000;
+      Random rand = Random();
+      _counter = rand.nextInt(max);
     });
   }
 
@@ -66,7 +69,7 @@ class _MyHomePageState extends State<MyHomePage> {
         ),
       ),
       floatingActionButton: FloatingActionButton(
-        onPressed: _incrementCounter,
+        onPressed: _randNum,
         tooltip: 'Generate',
         child: const Icon(Icons.add),
       ),
