@@ -35,12 +35,13 @@ class MyHomePage extends StatefulWidget {
 
 class _MyHomePageState extends State<MyHomePage> {
   int _counter = 0;
+  String max = "";
+  String min = "";
 
   void _randNum() {
     setState(() {
-      int max = 10000;
       Random rand = Random();
-      _counter = rand.nextInt(max);
+      _counter = rand.nextInt(int.parse(max)) + int.parse(min);
     });
   }
 
@@ -58,6 +59,18 @@ class _MyHomePageState extends State<MyHomePage> {
 
           mainAxisAlignment: MainAxisAlignment.center,
           children: <Widget>[
+            TextFormField(
+              decoration: const InputDecoration(
+                border: UnderlineInputBorder(),
+                labelText: 'Max Value',
+              ),
+            ),
+            TextFormField(
+              decoration: const InputDecoration(
+                border: UnderlineInputBorder(),
+                labelText: 'Min Value',
+              ),
+            ),
             const Text(
               'YourNumber:',
             ),
